@@ -1,6 +1,6 @@
 # A python script for data reduction of Suzaku
 
-This is a simple script to reduce Suzaku data. Follow the instruction printed on screen and your can get you data reduced.
+This is a simple script to reduce Suzaku data. Follow the instruction printed on screen and your can get you data reduced. The script has been tested on Ubuntu 1404 with Python 3.7.7 and Heasoft 6.26.
 
 To use the script:
 

@@ -9,6 +9,7 @@ python reduction.py --pathin /path/of/the/input --pathout /path/of/the/output --
 ```
 
 Parameters:
+
 --pathin: **full path** in which the raw data is stored (e.g. /home/somebody/409049010)
 
 --pathout: **full path** for the pipeline output. The directory will be removed if already exists

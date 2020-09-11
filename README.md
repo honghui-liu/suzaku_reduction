@@ -35,3 +35,7 @@ Strategy:
   * num_photon=400000
 * HXD PIN with `hxdpinxbpi`.
 * HXD GSO with `hxdgsoxbpi`.
+
+Contact:
+
+Please contact me (honghui_astro<-at->outlook.com) if there is anything wrong in the script.

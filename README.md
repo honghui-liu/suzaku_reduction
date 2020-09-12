@@ -36,6 +36,3 @@ python reduction.py --pathin /path/of/the/input --pathout /path/of/the/output --
 * HXD PIN with `hxdpinxbpi`.
 * HXD GSO with `hxdgsoxbpi`.
 
-## Contact:
-
-Please contact me (honghui_astro<-at->outlook.com) if there is anything wrong in the script.

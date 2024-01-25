@@ -140,19 +140,19 @@ def pileup_excl(all_list):
     xi0_list, xi1_list, xi3_list = hf.arrange_list(evt_list=all_list)
 
     if len(xi0_list)>0.1:
-        event = hf.find_3x3(xi0_list)
+        # event = hf.find_3x3(xi0_list)
         print("Estimating pile-up of xi0")
-        pileest(evtfile=event[0], outmap="xi0_pileup", outreg="xi0_pileup.reg")
+        pileest(evtfile=find_largest_size(xi0_list), outmap="xi0_pileup", outreg="xi0_pileup.reg")
 
     if len(xi1_list)>0.1:
-        event = hf.find_3x3(xi1_list)
+        # event = hf.find_3x3(xi1_list)
         print("Estimating pile-up of xi1")
-        pileest(evtfile=event[0], outmap="xi1_pileup", outreg="xi1_pileup.reg")
+        pileest(evtfile=find_largest_size(xi0_list), outmap="xi1_pileup", outreg="xi1_pileup.reg")
 
     if len(xi3_list)>0.1:
-        event = hf.find_3x3(xi3_list)
+        # event = hf.find_3x3(xi3_list)
         print("Estimating pile-up of xi3")
-        pileest(evtfile=event[0], outmap="xi3_pileup", outreg="xi3_pileup.reg")
+        pileest(evtfile=find_largest_size(xi0_list), outmap="xi3_pileup", outreg="xi3_pileup.reg")
 
     return True
 

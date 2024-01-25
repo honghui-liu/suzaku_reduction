@@ -11,6 +11,17 @@ import subprocess as sp
 import glob
 import handle_files as hf
 
+def find_largest_size(lis):
+    
+    file = lis[0]
+    size = 0
+    for i in range(len(lis)):
+        if os.stat(lis[i]).st_size > size:
+            file = lis[i]
+            size = os.stat(lis[i]).st_size
+    
+    return file
+
 def viewimage(evtfile, cmap='heat'):
     """
     View fits file with ds9
@@ -76,7 +87,8 @@ def attcorr(outdir):
               "Will use the first one: {0}".format(old_att))
 
     # get the cleaned event list
-    evtfile = glob.glob("*xi*3x3*cl.evt")[0]
+    evtfile = find_largest_size(glob.glob("*xi*3x3*cl.evt"))
+    # evtfile = glob.glob("*xi*3x3*cl.evt")[0]
     regfile = 'source.reg'
 
     # select the source region for correction

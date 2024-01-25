@@ -56,7 +56,7 @@ if (__name__ == '__main__'):
 
 
     print('#'*15 + ' Runing pipeline ' + '#'*15)
-    #pipeline.pipeline(indir=args.pathin, outdir=args.pathout, stem=args.id)
+    pipeline.pipeline(indir=args.pathin, outdir=args.pathout, stem=args.id)
 
     # get info: att, evt_list
     att = hf.get_att(args.pathout)

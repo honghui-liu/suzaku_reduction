@@ -6,6 +6,17 @@ import handle_files as hf
 def runcom(string):
     sp.check_call(string, shell=True)
 
+def find_largest_size(lis):
+    
+    file = lis[0]
+    size = 0
+    for i in range(len(lis)):
+        if os.stat(lis[i]).st_size > size:
+            file = lis[i]
+            size = os.stat(lis[i]).st_size
+    
+    return file
+
 def viewregion(fits, src_reg, bkg_reg, cmap='heat'):
     """
     Check the region visually
@@ -46,13 +57,13 @@ def get_region(all_list):
     xi3_reg = []
 
     if len(xi0_list)>0.1:
-        event = hf.find_3x3(xi0_list)
+        event = find_largest_size(xi0_list)
 
         hint = ("Choose the source region and save it with name 'xi0_src.reg' \n"
                 "Choose the background region and save as 'xi0_bkg.reg' \n"
                 "Use ds9 format and 'physical' coordinate! \n")
         print(hint)
-        correction.viewimage(event[0])
+        correction.viewimage(event)
         xi0_reg.append('xi0_src.reg')
         xi0_reg.append('xi0_bkg.reg')
 
@@ -61,16 +72,16 @@ def get_region(all_list):
             xi0_reg[0] = src_reg
 
         print("Check regions \n")
-        viewregion(fits=event[0], src_reg=xi0_reg[0], bkg_reg=xi0_reg[1])
+        viewregion(fits=event, src_reg=xi0_reg[0], bkg_reg=xi0_reg[1])
 
     if len(xi1_list)>0.1:
-        event = hf.find_3x3(xi1_list)
+        event = find_largest_size(xi1_list)
 
         hint = ("Choose the source region and save it with name 'xi1_src.reg' \n"
                 "Choose the background region and save as 'xi1_bkg.reg' \n"
                 "Use ds9 format and 'physical' coordinate! \n")
         print(hint)
-        correction.viewimage(event[0])
+        correction.viewimage(event)
         xi1_reg.append('xi1_src.reg')
         xi1_reg.append('xi1_bkg.reg')
 
@@ -79,16 +90,16 @@ def get_region(all_list):
             xi1_reg[0] = src_reg
 
         print("Check regions \n")
-        viewregion(fits=event[0], src_reg=xi1_reg[0], bkg_reg=xi1_reg[1])
+        viewregion(fits=event, src_reg=xi1_reg[0], bkg_reg=xi1_reg[1])
 
     if len(xi3_list)>0.1:
-        event = hf.find_3x3(xi3_list)
+        event = find_largest_size(xi3_list)
 
         hint = ("Choose the source region and save it with name 'xi3_src.reg' \n"
                 "Choose the background region and save as 'xi3_bkg.reg' \n"
                 "Use ds9 format and 'physical' coordinate! \n")
         print(hint)
-        correction.viewimage(event[0])
+        correction.viewimage(event)
         xi3_reg.append('xi3_src.reg')
         xi3_reg.append('xi3_bkg.reg')
 
@@ -97,6 +108,6 @@ def get_region(all_list):
             xi3_reg[0] = src_reg
 
         print("Check regions \n")
-        viewregion(fits=event[0], src_reg=xi3_reg[0], bkg_reg=xi3_reg[1])
+        viewregion(fits=event, src_reg=xi3_reg[0], bkg_reg=xi3_reg[1])
 
     return xi0_reg, xi1_reg, xi3_reg
